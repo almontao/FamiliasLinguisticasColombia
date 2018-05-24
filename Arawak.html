@@ -1,0 +1,36 @@
+<html>
+<body>
+ <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
+<div id="sankey_multiple" style="height: 300px; width: 900px;">
+</div>
+<script type="text/javascript">
+  google.charts.load("current", {packages:["sankey"]});
+  google.charts.setOnLoadCallback(drawChart);
+   function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'From');
+    data.addColumn('string', 'To');
+    data.addColumn('number', 'Weight');
+    data.addRows([
+       [ 'Colombia', 'Arawak', 157220 ],
+       [ 'Arawak', 'Wayú', 144000 ],
+       [ 'Arawak', 'Achagua', 280 ],
+       [ 'Arawak', 'Piapoco', 4500 ],
+       [ 'Arawak', 'Curripaco', 7000 ],
+       [ 'Arawak', 'Baniva', 330 ],
+       [ 'Arawak', 'Tariano', 330 ],
+       [ 'Arawak', 'Yucuna', 500 ],
+       [ 'Arawak', 'Cabiyarí', 280 ],
+       [ 'Venezuela', 'Wayú', 180000 ]
+    ]);
+    // Set chart options
+    var options = {
+      width: 600,
+    };
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+    chart.draw(data, options);
+   }
+</script>
+</body>
+</html>
